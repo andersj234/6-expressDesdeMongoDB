@@ -1,6 +1,6 @@
 lista()
 function lista(){
-    fetch("mesas").then(function(respuesta){
+    fetch("/api/mesas").then(function(respuesta){
         return respuesta.json()
     }).then(function (datos){
         let parrafo =""
@@ -26,7 +26,7 @@ function agregarMesas(){
         material,
         patas,
     }
-    fetch("api/anyadir",{
+    fetch("/api/anyadir",{
         method: "POST",
         headers:{
             "Content-Type" : "application/json",

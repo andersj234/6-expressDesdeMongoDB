@@ -39,14 +39,12 @@ app.post("api/anyadir", function(req,res){
         material,
         patas,
     }
-    db.collection.insertOne(paqueteMesas)
-
-    db.collection("mesas").find().toArray(function(err, datos){
+    db.collection("mesas").insertOne(paqueteMesas,function(err, datos){
         if(err !== null){
-            res.send({err: true, datos:datos})
+            res.send({err: true, mensaje :error})
         }else{
-            res.send({err: false, contenido :datos})
+            res.send({err: false, mensaje :datos})
         }
-    })
-})
+    });
+});
 app.listen(3000)
